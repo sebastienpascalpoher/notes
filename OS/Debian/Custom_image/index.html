@@ -1,0 +1,2554 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Recueil de notes techniques">
+      
+      
+      
+      
+        <link rel="canonical" href="https://sebastienpascalpoher.github.io/notes/OS/Debian/Custom_image/">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Custom image - Notes techniques</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creer-sa-debian" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://sebastienpascalpoher.github.io/notes" title="Notes techniques" class="md-header-nav__button md-logo" aria-label="Notes techniques">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Notes techniques
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Custom image
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/sebastienpascalpoher/notes/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://sebastienpascalpoher.github.io/notes" title="Notes techniques" class="md-nav__button md-logo" aria-label="Notes techniques">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Notes techniques
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/sebastienpascalpoher/notes/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Desktop
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Desktop" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Desktop/Manage_Dotfiles_with_Git/" class="md-nav__link">
+        Manage Dotfiles with Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Desktop/Pulseaudio%26Bluetooth/" class="md-nav__link">
+        Pulseaudio&Bluetooth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Desktop/Sync_Github_fork/" class="md-nav__link">
+        Syncing a Github fork
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Divers" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Divers/mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/Container_backup/" class="md-nav__link">
+        Container backup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/Databases_backup/" class="md-nav__link">
+        Databases backup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/General_use/" class="md-nav__link">
+        General use
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/Tips/" class="md-nav__link">
+        General Docker Tips and issues solutions
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        Filesystems
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Filesystems" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          Filesystems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/Filesystems_tricks/" class="md-nav__link">
+        Step 1: Find inode number of any file using following command on terminal.
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/GlusterFS/" class="md-nav__link">
+        GlusterFS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/LUKS/" class="md-nav__link">
+        LUKS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/LVM/" class="md-nav__link">
+        LVM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/RAID_Rebuild/" class="md-nav__link">
+        RAID Rebuild
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/RAID_Resize/" class="md-nav__link">
+        RAID Resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/ZFS/" class="md-nav__link">
+        ZFS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Filesystems/sfdisk_usage/" class="md-nav__link">
+        Sfdisk usage
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        GitLab
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="GitLab" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          GitLab
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GitLab/registry_clean/" class="md-nav__link">
+        Registry Management
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      
+      <label class="md-nav__link" for="nav-7">
+        LDAP
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="LDAP" data-md-level="1">
+        <label class="md-nav__title" for="nav-7">
+          <span class="md-nav__icon md-icon"></span>
+          LDAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LDAP/LDAP_tunning/" class="md-nav__link">
+        LDAP tunning
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LDAP/Monitoring_LDAP/" class="md-nav__link">
+        Monitoring LDAP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LDAP/Recover_admin_password/" class="md-nav__link">
+        Recover admin password lost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LDAP/Reset_slave_state/" class="md-nav__link">
+        Reset slave state
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+      
+      <label class="md-nav__link" for="nav-8">
+        Linux
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Busybox/" class="md-nav__link">
+        Busybox
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Copy_sparse_files/" class="md-nav__link">
+        Copier un fichier sparse sur le réseau
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Create_floppy_disk/" class="md-nav__link">
+        Create floppy disk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Create_img_disk/" class="md-nav__link">
+        Create img disk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Create_iso_file/" class="md-nav__link">
+        Create iso file
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Curl/" class="md-nav__link">
+        Curl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Encrypt_files/" class="md-nav__link">
+        Encrypt files
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/GPG/" class="md-nav__link">
+        GPG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Get_file_creation_time/" class="md-nav__link">
+        Get file creation time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Get_process_info/" class="md-nav__link">
+        Get process info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Grep_regex/" class="md-nav__link">
+        Grep
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/MPD/" class="md-nav__link">
+        MPD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Memo/" class="md-nav__link">
+        Memo
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/RSyslog/" class="md-nav__link">
+        RSyslog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Repair_broken_GRUB/" class="md-nav__link">
+        Repair broken GRUB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/SELinux/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/SSH/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Sed/" class="md-nav__link">
+        Sed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Set_Kernel_in_Grub/" class="md-nav__link">
+        Set Kernel version in Grub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Tmux/" class="md-nav__link">
+        Tmux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Vim/" class="md-nav__link">
+        Vim
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/openSSL/" class="md-nav__link">
+        openSSL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-25" type="checkbox" id="nav-8-25" >
+      
+      <label class="md-nav__link" for="nav-8-25">
+        Cockpit
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cockpit" data-md-level="2">
+        <label class="md-nav__title" for="nav-8-25">
+          <span class="md-nav__icon md-icon"></span>
+          Cockpit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/Cockpit/cockpit/" class="md-nav__link">
+        Cockpit
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+      
+      <label class="md-nav__link" for="nav-9">
+        Mail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mail" data-md-level="1">
+        <label class="md-nav__title" for="nav-9">
+          <span class="md-nav__icon md-icon"></span>
+          Mail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mail/Postfix/" class="md-nav__link">
+        Postfix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mail/Telnet/" class="md-nav__link">
+        Use Telnet to send mail
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+      
+      <label class="md-nav__link" for="nav-10">
+        Network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Network" data-md-level="1">
+        <label class="md-nav__title" for="nav-10">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/App_jail/" class="md-nav__link">
+        App jail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/Carp/" class="md-nav__link">
+        CARP (openBSD)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/FirewallD/" class="md-nav__link">
+        FirewallD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/NetworkManager/" class="md-nav__link">
+        Start shell script on Network Manager successful connection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/Network_Diag/" class="md-nav__link">
+        Network Diag
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/TCPdump/" class="md-nav__link">
+        TCPdump
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/Trafic_error/" class="md-nav__link">
+        Trafi error
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      
+      <label class="md-nav__link" for="nav-11">
+        OS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="nav-11">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Clonezilla_PXE/" class="md-nav__link">
+        Clonezilla PXE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openSUSE_memo/" class="md-nav__link">
+        openSUSE memo
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-3" type="checkbox" id="nav-11-3" >
+      
+      <label class="md-nav__link" for="nav-11-3">
+        CentOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CentOS" data-md-level="2">
+        <label class="md-nav__title" for="nav-11-3">
+          <span class="md-nav__icon md-icon"></span>
+          CentOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CentOS/Apache_SeLinux/" class="md-nav__link">
+        Apache SeLinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CentOS/Colorful_root_prompt/" class="md-nav__link">
+        Colorized prompt for root
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CentOS/vimrc/" class="md-nav__link">
+        Vimrc
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-4" type="checkbox" id="nav-11-4" >
+      
+      <label class="md-nav__link" for="nav-11-4">
+        Centreon
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Centreon" data-md-level="2">
+        <label class="md-nav__title" for="nav-11-4">
+          <span class="md-nav__icon md-icon"></span>
+          Centreon
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Centreon/SNMP_Config/" class="md-nav__link">
+        Centreon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-5" type="checkbox" id="nav-11-5" checked>
+      
+      <label class="md-nav__link" for="nav-11-5">
+        Debian
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Debian" data-md-level="2">
+        <label class="md-nav__title" for="nav-11-5">
+          <span class="md-nav__icon md-icon"></span>
+          Debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Custom image
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Custom image
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-sa-debian" class="md-nav__link">
+    Créer sa debian
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer sa debian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-sa-propre-distribution-avec-live-build" class="md-nav__link">
+    Créer sa propre distribution avec live-build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparons-le-travail" class="md-nav__link">
+    Préparons le travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-une-liste-de-paquets-personnalisee" class="md-nav__link">
+    Installer une liste de paquets personnalisée
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparer-les-fichiers-de-configuration-de-lutilisateur-le-home" class="md-nav__link">
+    Préparer les fichiers de configuration de l’utilisateur (le home)
+  </a>
+  
+    <nav class="md-nav" aria-label="Préparer les fichiers de configuration de l’utilisateur (le home)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preciser-une-autre-distribution" class="md-nav__link">
+    Préciser une autre distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-autre-chose-que-main" class="md-nav__link">
+    Utiliser autre chose que main
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-un-clone-du-syteme-preconfigure" class="md-nav__link">
+    Installer un clone du sytème préconfiguré
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-une-cle-usb-pas-une-iso-cdrom" class="md-nav__link">
+    Pour une clé usb, pas une iso cdrom
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-lutilisateur-nom-dutilisateur-groupes" class="md-nav__link">
+    Configurer l'utilisateur (nom d'utilisateur, groupes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lancer-des-scripts-pour-configurer-le-systeme" class="md-nav__link">
+    Lancer des scripts pour configurer le système
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence-des-donnees" class="md-nav__link">
+    Persistence des données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-de-limage" class="md-nav__link">
+    Construction de l’image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gravure-copie-sur-usb" class="md-nav__link">
+    Gravure/ copie sur usb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendre-les-constructions-futures-plus-rapides" class="md-nav__link">
+    Rendre les constructions futures plus rapides
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendre les constructions futures plus rapides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tricks/" class="md-nav__link">
+        Tricks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apt_conf/" class="md-nav__link">
+        Configuration APT
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-6" type="checkbox" id="nav-11-6" >
+      
+      <label class="md-nav__link" for="nav-11-6">
+        Fedora
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Fedora" data-md-level="2">
+        <label class="md-nav__title" for="nav-11-6">
+          <span class="md-nav__icon md-icon"></span>
+          Fedora
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Fedora/Manage_repositories/" class="md-nav__link">
+        Manage repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
+      
+      <label class="md-nav__link" for="nav-12">
+        PAM SSSD
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="PAM SSSD" data-md-level="1">
+        <label class="md-nav__title" for="nav-12">
+          <span class="md-nav__icon md-icon"></span>
+          PAM SSSD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PAM_SSSD/Disable_fprintd/" class="md-nav__link">
+        Disable fprintd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PAM_SSSD/polkit/" class="md-nav__link">
+        Autoriser Polkit Pam avec SSSD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
+      
+      <label class="md-nav__link" for="nav-13">
+        Podman
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Podman" data-md-level="1">
+        <label class="md-nav__title" for="nav-13">
+          <span class="md-nav__icon md-icon"></span>
+          Podman
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Podman/Pods/" class="md-nav__link">
+        Create pods with Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Podman/Tips/" class="md-nav__link">
+        Tips and tricks about Podman
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14" >
+      
+      <label class="md-nav__link" for="nav-14">
+        SQL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SQL" data-md-level="1">
+        <label class="md-nav__title" for="nav-14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL/MySQL/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL/PostgreSQL/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" >
+      
+      <label class="md-nav__link" for="nav-15">
+        Systemd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systemd" data-md-level="1">
+        <label class="md-nav__title" for="nav-15">
+          <span class="md-nav__icon md-icon"></span>
+          Systemd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Systemd/Mount_Shares/" class="md-nav__link">
+        Mount via Systemd Units
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16" >
+      
+      <label class="md-nav__link" for="nav-16">
+        Virt
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Virt" data-md-level="1">
+        <label class="md-nav__title" for="nav-16">
+          <span class="md-nav__icon md-icon"></span>
+          Virt
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Virt/Libvirt_cert/" class="md-nav__link">
+        How to generate and use a cert for Libvirt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Virt/Qemu_mount_image/" class="md-nav__link">
+        Mounting a QEMU Image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Virt/Sparse_file_copy/" class="md-nav__link">
+        Copier un fichier sparse sur le réseau
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Virt/Virt-Manager/" class="md-nav__link">
+        Virt Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17" >
+      
+      <label class="md-nav__link" for="nav-17">
+        Web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web" data-md-level="1">
+        <label class="md-nav__title" for="nav-17">
+          <span class="md-nav__icon md-icon"></span>
+          Web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17-2" type="checkbox" id="nav-17-2" >
+      
+      <label class="md-nav__link" for="nav-17-2">
+        Apache
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Apache" data-md-level="2">
+        <label class="md-nav__title" for="nav-17-2">
+          <span class="md-nav__icon md-icon"></span>
+          Apache
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Apache/Mapping/" class="md-nav__link">
+        Create an redirection mapping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Apache/Redirection/" class="md-nav__link">
+        Redirections Apache
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17-3" type="checkbox" id="nav-17-3" >
+      
+      <label class="md-nav__link" for="nav-17-3">
+        HAProxy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HAProxy" data-md-level="2">
+        <label class="md-nav__title" for="nav-17-3">
+          <span class="md-nav__icon md-icon"></span>
+          HAProxy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/HAProxy/Keepalived_VRRP_Config/" class="md-nav__link">
+        Keepalived VRRP Config
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/HAProxy/LDAP_configuration/" class="md-nav__link">
+        LDAP configuration
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-sa-debian" class="md-nav__link">
+    Créer sa debian
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer sa debian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-sa-propre-distribution-avec-live-build" class="md-nav__link">
+    Créer sa propre distribution avec live-build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparons-le-travail" class="md-nav__link">
+    Préparons le travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-une-liste-de-paquets-personnalisee" class="md-nav__link">
+    Installer une liste de paquets personnalisée
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparer-les-fichiers-de-configuration-de-lutilisateur-le-home" class="md-nav__link">
+    Préparer les fichiers de configuration de l’utilisateur (le home)
+  </a>
+  
+    <nav class="md-nav" aria-label="Préparer les fichiers de configuration de l’utilisateur (le home)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preciser-une-autre-distribution" class="md-nav__link">
+    Préciser une autre distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-autre-chose-que-main" class="md-nav__link">
+    Utiliser autre chose que main
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-un-clone-du-syteme-preconfigure" class="md-nav__link">
+    Installer un clone du sytème préconfiguré
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-une-cle-usb-pas-une-iso-cdrom" class="md-nav__link">
+    Pour une clé usb, pas une iso cdrom
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-lutilisateur-nom-dutilisateur-groupes" class="md-nav__link">
+    Configurer l'utilisateur (nom d'utilisateur, groupes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lancer-des-scripts-pour-configurer-le-systeme" class="md-nav__link">
+    Lancer des scripts pour configurer le système
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence-des-donnees" class="md-nav__link">
+    Persistence des données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-de-limage" class="md-nav__link">
+    Construction de l’image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gravure-copie-sur-usb" class="md-nav__link">
+    Gravure/ copie sur usb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendre-les-constructions-futures-plus-rapides" class="md-nav__link">
+    Rendre les constructions futures plus rapides
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendre les constructions futures plus rapides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sebastienpascalpoher/notes/edit/master/docs/OS/Debian/Custom_image.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Custom image</h1>
+                
+                <h2 id="creer-sa-debian">Créer sa debian</h2>
+<h3 id="creer-sa-propre-distribution-avec-live-build">Créer sa propre distribution avec live-build</h3>
+<p>Live-build est un petit outil permettant de construire des images pour  cdrom ou usb de debian. Vous pourrez pré-configurer cette «distribution  perso» comme si c’était la vôtre, l&rsquo;utiliser comme système “live”, et  aussi l’installer telle quelle. <br />
+Cette page tentera d’apporter quelques éclaircissements sur  l’utilisation de live-build, parfois obscure, en particulier sur la  version 3. <br />
+Sachez toutefois que la meilleure documentation se trouve sur votre  ordinateur. Une fois live-build d’installé, allez jeter un oeil à la  documentation présente dans /usr/share/doc/live-manual/html/ . </p>
+<h3 id="installation">Installation</h3>
+<p>Je vous conseille d’installer la version disponible dans les dépôts. Pour une version plus récente si vous êtes en &ldquo;oldstable&rdquo;, utilisez les dépots suivants : <br />
+deb <a href="http://live.debian.net/">http://live.debian.net/</a> wheezy-snapshots main contrib non-free</p>
+<p>Puis installez live-build, live-manual et live-tools. </p>
+<div class="codehilite"><pre><span></span><code><span class="err">apt-get update &amp;&amp; apt-get install live-build live-manual live-tools</span>
+</code></pre></div>
+
+<h3 id="preparons-le-travail">Préparons le travail</h3>
+<p>On va créer un répertoire de travail, s’y déplacer, puis créer l’arbre de live build pour la suite : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">mkdir masuperdebian</span>
+<span class="err">cd masuperdebian</span>
+<span class="err">lb config</span>
+</code></pre></div>
+
+<p>Désormais sont présent dans ce dossier de nouveaux répertoires, tels que config. </p>
+<h3 id="configuration">Configuration</h3>
+<p>La configuration se réalise par l’édition de plusieurs fichiers présents dans le répertoire config : binary, bootstrap, chroot, common. Cependant, comme les options de live-build peuvent changer lors du changement de version, nous allons plutôt utiliser la ligne de commande pour faire ça. Autrement dit, lorsque lb config sera lancé, il appliquera automatiquement certains réglages. <br />
+Tout d’abord, copiez les scripts clean, config et build présents dans /usr/share/live/build/examples/auto/ dans le répertoire auto du dossier masuperdebian : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">cp /usr/share/doc/live-build/examples/auto/* auto/</span>
+</code></pre></div>
+
+<p>Avec une ancienne version, c&rsquo;était cp /usr/share/live/build/examples/auto/* auto/. <br />
+Désormais, ce seront ces scripts qui seront utilisés lors des lb build, live config, etc. Nous les modifierons directement, afin d’éviter des lignes de commande à rallonge. Autrement dit, lorsque la commande lb config sera de nouveau exécutée, ce sera le script présent dans /auto/config qui sera lancé. <br />
+Voyons donc comment configurer le tout, en modifiant le fichier  auto/config. Tout d’abord, voici à quoi il ressemble par défaut : </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+lb config noauto <span class="se">\</span>
+<span class="s2">&quot;</span><span class="si">${</span><span class="p">@</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Nous allons rajouter des options selon les besoin à la suite. Le caractère  permet de passer à la ligne sans souci. Les options seront donc rajoutées entre ces deux lignes : </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+lb config noauto <span class="se">\</span>
+<span class="c1"># AJOUTER DES OPTIONS ICI \</span>
+<span class="c1"># ICI AUSSI \</span>
+<span class="c1"># ET ENCORE ICI SI VOUS VOULEZ \</span>
+<span class="s2">&quot;</span><span class="si">${</span><span class="p">@</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="installer-une-liste-de-paquets-personnalisee">Installer une liste de paquets personnalisée</h3>
+<p>Créez un fichier contenant la liste des paquets à installer, dans le dossier config/package-lists.  Attention : le fichier doit avoir l’extension .list.chroot . Par exemple :  maliste.list.chroot.  Remplissez ce fichier avec les paquets vous intéressant. </p>
+<h3 id="preparer-les-fichiers-de-configuration-de-lutilisateur-le-home">Préparer les fichiers de configuration de l’utilisateur (le home)</h3>
+<p>Vous souhaitez avoir vos marques pages de navigateur déjà prêt? Utiliser un thème graphique précis? Des raccourcis déjà tout prêts? Il s’agit de la configuration de l’utilisateur, généralement présente sous forme de fichier caché dans le /home/. <br />
+Pour avoir tout ça de déjà prêt, on va utiliser le dossier config/includes.chroot . Dans ce dernier, créez un dossier etc/skel . Il s’agit du dossier contenant tout ce qu’un utilisateur a dans son dossier personnel lorsqu’il est créé. Copiez dans le config/includes.chroot/etc/skel les fichiers de configuration, comme un .bashrc, ou un .config/openbox … Tout ce que vous voulez! <br />
+L’ensemble du contenu de ce dossier sera rajouté à votre système personnalisé. Bien sûr, cette fonctionnalité fonctionne pour tout, pas seulement pour /etc/skel. <br />
+note en passant : L’utilisateur par défaut s’appelle user </p>
+<p>Un système en français<br />
+Dans auto/config, ajoutez ces options : <br />
+    &ndash;bootappend-live &ldquo;locales=fr_FR.UTF-8 keyboard-layouts=fr&rdquo; \<br />
+    &ndash;bootappend-install &ldquo;locales=fr_FR.UTF-8&rdquo; \</p>
+<h4 id="preciser-une-autre-distribution">Préciser une autre distribution</h4>
+<p>Vous pouvez construire sid, ou oldstable, avec l’option –distribution : <br />
+    &ndash;distribution &ldquo;wheezy&rdquo; \</p>
+<h4 id="utiliser-autre-chose-que-main">Utiliser autre chose que main</h4>
+<p>Vous pouvez ajouter les sections contrib et non-free (bouh!): <br />
+    &ndash;archive-areas &ldquo;main contrib non-free&rdquo; \</p>
+<h4 id="installer-un-clone-du-syteme-preconfigure">Installer un clone du sytème préconfiguré</h4>
+<p>Pour installer le système tel qu&rsquo;il est sur votre clé sur un ordinateur, voici l&rsquo;option à utiliser : <br />
+    &ndash;debian-installer &ldquo;live&rdquo; \<br />
+Puis assurez vous d’installer le paquet debian-installer-launcher dans la liste des paquets à installer. </p>
+<h4 id="pour-une-cle-usb-pas-une-iso-cdrom">Pour une clé usb, pas une iso cdrom</h4>
+<div class="codehilite"><pre><span></span><code><span class="err">--binary-images &quot;hdd&quot; \</span>
+</code></pre></div>
+
+<h3 id="configurer-lutilisateur-nom-dutilisateur-groupes">Configurer l&rsquo;utilisateur (nom d&rsquo;utilisateur, groupes)</h3>
+<p>Pour configurer différents aspects de la session utilisateur, cela se passe en modifiant les paramètres de démarrage, c&rsquo;est à dire en rajoutant des choses dans la partie après “boot” de cette ligne <br />
+    &ndash;bootappend-live &ldquo;locales=fr_FR.UTF-8 keyboard-layouts=fr boot=live&rdquo; \</p>
+<p>Ainsi, pour changer les groupes et par exemple ajouter l&rsquo;utilisateur au groupe fuse, rajoutez : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">live-config.user-default-groups=audio,cdrom,dip,floppy,video,plugdev,netdev,powerdev,scanner,bluetooth,fuse`</span>
+</code></pre></div>
+
+<p>Ce qui donne : <br />
+    &ndash;bootappend-live &ldquo;locales=fr_FR.UTF-8 keyboard-layouts=fr boot=live user-default-groups=audio,cdrom,dip,floppy,video,plugdev,netdev,powerdev,scanner,bluetooth,fuse&rdquo; \</p>
+<p>Pour modifier le nom d&rsquo;utilisateur, c&rsquo;est avec username=nom_d_utilisateur </p>
+<h3 id="lancer-des-scripts-pour-configurer-le-systeme">Lancer des scripts pour configurer le système</h3>
+<p>Vous pouvez avoir besoin de lancer des scripts supplémentaire pour  personnaliser un peu plus le système. Ces scripts doivent être lancés  dans le chroot, avant que l&rsquo;image soit construite. <br />
+Heureusement, tout est déjà prévu. Il suffit de placer ces scripts dans le dossier config/hooks. Attention, ces scripts doivent avoir l&rsquo;extension .chroot. <br />
+Par exemple, pour changer l&rsquo;alternative par défaut du terminal, on peut créer un script alternatives.chroot : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">!/bin/sh</span>
+<span class="err">set -e</span>
+<span class="err">update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvtcd 90</span>
+</code></pre></div>
+
+<p>Dans le système, ce sera urxvtcd qui sera le terminal par défaut grâce à ce script. </p>
+<h3 id="persistence-des-donnees">Persistence des données</h3>
+<p>Si vous souhaitez retrouvez vos données entre chaque démarrage, pour  pouvez créer ce qu&rsquo;on appelle un live persistant. Pour cela,  assurez-vous d&rsquo;ajouter cette option : <br />
+    &ndash;bootappend-live &ldquo;persistence&rdquo;<br />
+Ce qui peut donner avec d&rsquo;autres paramètres : <br />
+    &ndash;bootappend-live &ldquo;persistence locales=fr_FR.UTF-8 keyboard-layouts=fr boot=live&rdquo; \<br />
+Je passe rapidement sur la suite des détails puisqu&rsquo;ils sont détaillés ensuite : 
+* Construction de l&rsquo;image : lb config &amp;&amp; lb build 
+* Copie de l&rsquo;image : # dd if=binary.hybrid.iso of=/dev/sdb <br />
+On crée ensuite une nouvelle partition sur la clé avec cfdisk ou gparted. Ensuite, on formate cette partition, par exemple en ext4. Le point important ici est de donner le label “persistence” à cette partition : <br />
+    mkfs.ext4 -L persistence /dev/sdb2</p>
+<p>Pour finir, on va créer un fichier persistence.conf (anciennement live-persistence.conf) dans cette partition, et y préciser quel dossier on veut garder pour les démarrages suivants. Ici, on choisit de conserver le /home, qui contient toutes les données des utilisateurs : </p>
+<ul>
+<li>Montage de la partition : # mount -t ext4 /dev/sdb2 /mnt </li>
+<li>Création du fichier persistence.conf avec l&rsquo;option voulue : # echo &ldquo;/home&rdquo; &gt;&gt; /mnt/persistence.conf </li>
+<li>
+<p>Démontage de la clé : #umount /mnt <br />
+Et voilà, lors du premier démarrage sur la clé, /home sera copié sur la partition /dev/sdb2, autrement dit la deuxième partition de la clé. À chaque redémarrage suivant, vous retrouverez les changements réalisés au dernier lancement, sans autre manipulation. <br />
+Un autre exemple de fichier persistence.conf pour garder aussi les éventuels programmes installés à posteriori sur la clé, ainsi que la configuration de l&rsquo;utilisateur (merci LeDub) : </p>
+<p>/usr union<br />
+/home<br />
+/var/cache/apt</p>
+</li>
+</ul>
+<h3 id="construction-de-limage">Construction de l’image</h3>
+<p>Il suffit de lancer, toujours dans le répertoire masuperdebian : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">lb config</span>
+<span class="err">lb build</span>
+</code></pre></div>
+
+<p>lb config prépare l’image selon les options définies dans le fichier auto/config, et lb build fabrique l’image. </p>
+<h3 id="gravure-copie-sur-usb">Gravure/ copie sur usb</h3>
+<p>Une image iso est maintenant disponible dans le répertoire masuperdebian. <br />
+Si vous avez choisi le format usb, vous pouvez copier le tout sur une clé de cette façon : </p>
+<div class="codehilite"><pre><span></span><code><span class="err">dd if=binary.img of=/dev/sdb</span>
+</code></pre></div>
+
+<p>où binary.img est l’image de votre debian personnalisée, et /dev/sdb est le chemin vers votre clé usb. Attention, ce n’est pas /dev/sdb1 ou /dev/sdc2, mais seulement  /dev/sdb. De plus, tout sera effacé sur votre clé. Assurez-vous de  copier sur le bon périphérique! <br />
+Il se peut aussi que vous ayez plutôt binary.hybrid.iso, ce n&rsquo;est pas un problème, il s&rsquo;agit juste d&rsquo;un format pouvant servir à la fois pour les clé usb que pour les cdroms. </p>
+<p>On recommence<br />
+La dernière image ne correspondait pas à vos attentes? On recommence alors. Tout d’abord, on nettoie le tout : <br />
+    lb clean<br />
+Puis vous appliquez vos changements de configuration, et ensuite : <br />
+    lb config<br />
+on recommence au début. </p>
+<h3 id="rendre-les-constructions-futures-plus-rapides">Rendre les constructions futures plus rapides</h3>
+<p>Si vous planifiez de construire des ISO régulièrement, une bonne idée serait de mettre en cache les paquets localement. Installez simplement apt-cacher-ng et configurez la variable d&rsquo;environnement http_proxy avant la construction: </p>
+<div class="codehilite"><pre><span></span><code><span class="err">apt-get install apt-cacher-ng</span>
+<span class="err">/etc/init.d/apt-cacher-ng start</span>
+<span class="err">export http_proxy=http://localhost:3142/</span>
+<span class="err">.... # setup and configure your live build</span>
+<span class="err">lb config --apt-http-proxy http://127.0.0.1:3142/</span>
+<span class="err">lb build</span>
+</code></pre></div>
+
+<p>D&rsquo;après la documentation de Kali linux </p>
+<h4 id="exemple">Exemple</h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+
+lb config noauto <span class="se">\</span>
+--architectures <span class="s2">&quot;i386&quot;</span> <span class="se">\</span>
+--linux-flavours <span class="s2">&quot;686&quot;</span> <span class="se">\</span>
+--bootappend-live <span class="s2">&quot;locales=fr_FR.UTF-8 keyboard-layouts=fr&quot;</span> <span class="se">\</span>
+--bootappend-install <span class="s2">&quot;locales=fr_FR.UTF-8&quot;</span> <span class="se">\</span>
+--binary-images <span class="s2">&quot;hdd&quot;</span> <span class="se">\</span>
+--distribution <span class="s2">&quot;wheezy&quot;</span> <span class="se">\</span>
+--archive-areas <span class="s2">&quot;main contrib non-free&quot;</span> <span class="se">\</span>
+--apt-indices <span class="s2">&quot;false&quot;</span> <span class="se">\</span>
+--apt-recommends <span class="s2">&quot;false&quot;</span> <span class="se">\</span>
+--includes <span class="s2">&quot;none&quot;</span> <span class="se">\</span>
+--memtest <span class="s2">&quot;none&quot;</span> <span class="se">\</span>
+--win32-loader <span class="s2">&quot;false&quot;</span> <span class="se">\</span>
+--source <span class="s2">&quot;false&quot;</span> <span class="se">\</span>
+--debug <span class="se">\</span>
+<span class="s2">&quot;</span><span class="si">${</span><span class="p">@</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Liste des options disponibles à lb config</p>
+<p>Pour connaître toutes les options pouvant être ajoutées au fichier auto/config, tapez la commande man lb_config, et vous obtiendrez quelque chose du genre : </p>
+<div class="codehilite"><pre><span></span><code><span class="k">[--apt apt|aptitude]</span>
+<span class="k">[--apt-ftp-proxy URL]</span>
+<span class="k">[--apt-http-proxy URL]</span>
+<span class="k">[--apt-indices true|false|none]</span>
+<span class="k">[--apt-options OPTION|&quot;OPTIONS&quot;]</span>
+<span class="k">[--aptitude-options OPTION|&quot;OPTIONS&quot;]</span>
+<span class="k">[--apt-pipeline DEPTH]</span>
+<span class="k">[--apt-recommends true|false]</span>
+<span class="k">[--apt-secure true|false]</span>
+<span class="k">[--apt-source-archives true|false]</span>
+<span class="k">[-a|--architectures ARCHITECTURE]</span>
+<span class="k">[-b|--binary-images iso|iso-hybrid|net|tar|hdd|virtual-hdd]</span>
+<span class="k">[--binary-filesystem fat16|fat32|ext2|ext3|ext4]</span>
+<span class="k">[--bootappend-install PARAMETER|&quot;PARAMETERS&quot;]</span>
+<span class="k">[--bootappend-live PARAMETER|&quot;PARAMETERS&quot;]</span>
+<span class="k">[--bootloader grub|syslinux|yaboot]</span>
+<span class="k">[--bootstrap cdebootstrap|cdebootstrap-static|debootstrap|copy]</span>
+<span class="k">[-f|--bootstrap-flavour minimal|standard]</span>
+<span class="k">[--bootstrap-keyring PACKAGE]</span>
+<span class="k">[--cache true|false]</span>
+<span class="k">[--cache-indices true|false]</span>
+<span class="k">[--cache-packages true|false]</span>
+<span class="k">[--cache-stages STAGE|&quot;STAGES&quot;]</span>
+<span class="k">[--checksums md5|sha1|sha256|none]</span>
+<span class="k">[--compression bzip2|gzip|lzip|none]</span>
+<span class="k">[--build-with-chroot true|false]</span>
+<span class="k">[--chroot-filesystem ext2|ext3|ext4|squashfs|jffs2|none]</span>
+<span class="k">[--clean]</span>
+<span class="k">[-c|--conffile FILE]</span>
+<span class="k">[--debconf-frontend dialog|editor|noninteractive|readline]</span>
+<span class="k">[--debconf-nowarnings true|false]</span>
+<span class="k">[--debconf-priority low|medium|high|critical]</span>
+<span class="k">[--debian-installer true|cdrom|netinst|netboot|businesscard|live|false]</span>
+<span class="k">[--debian-installer-distribution daily|CODENAME]</span>
+<span class="k">[--debian-installer-preseedfile FILE|URL]</span>
+<span class="k">[--debian-installer-gui true|false]</span>
+<span class="k">[--debug]</span>
+<span class="k">[-d|--distribution CODENAME]</span>
+<span class="k">[--parent-distribution CODENAME]</span>
+<span class="k">[--parent-debian-installer-distribution CODENAME]</span>
+</code></pre></div>
+
+<hr />
+<p>Références
+* <a href="https://debian-live.alioth.debian.org/live-manual/stable/manual/html/live-manual.en.html#117">https://debian-live.alioth.debian.org/live-manual/stable/manual/html/live-manual.en.html#117</a>
+* <a href="http://www.esdebian.org/wiki/live-helper">http://www.esdebian.org/wiki/live-helper</a>
+* <a href="http://live.debian.net/">http://live.debian.net/</a>
+* <a href="http://live.debian.net/devel/live-build/">http://live.debian.net/devel/live-build/</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Centreon/SNMP_Config/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Centreon
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Tricks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tricks
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
