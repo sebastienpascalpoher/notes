@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://sjpp.github.io/notes/Filesystems/GlusterFS/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
@@ -22,10 +22,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -73,24 +73,24 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://sjpp.github.io/notes" title="Technical notes" class="md-header__button md-logo" aria-label="Technical notes">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://sjpp.github.io/notes" title="Technical notes" class="md-header-nav__button md-logo" aria-label="Technical notes">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header-nav__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             Technical notes
           </span>
         </div>
-        <div class="md-header__topic" data-md-component="header-topic">
+        <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
               GlusterFS
@@ -99,12 +99,9 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -113,10 +110,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -134,12 +131,12 @@
 </div>
     
     
-      <div class="md-header__source">
+      <div class="md-header-nav__source">
         
-<a href="https://github.com/sjpp/notes/" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/sjpp/notes/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Github
@@ -160,7 +157,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -173,7 +170,7 @@
     <a href="https://sjpp.github.io/notes" title="Technical notes" class="md-nav__button md-logo" aria-label="Technical notes">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Technical notes
@@ -181,10 +178,10 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/sjpp/notes/" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/sjpp/notes/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Github
@@ -220,18 +217,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="nav-2">
         Desktop
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Desktop" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="nav-2">
           <span class="md-nav__icon md-icon"></span>
           Desktop
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -286,18 +284,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
       
-      <label class="md-nav__link" for="__nav_3">
+      <label class="md-nav__link" for="nav-3">
         Divers
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Divers" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="nav-3">
           <span class="md-nav__icon md-icon"></span>
           Divers
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -328,18 +327,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
-      <label class="md-nav__link" for="__nav_4">
+      <label class="md-nav__link" for="nav-4">
         Docker
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Docker" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="nav-4">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -408,18 +408,19 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
       
-      <label class="md-nav__link" for="__nav_5">
+      <label class="md-nav__link" for="nav-5">
         Filesystems
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Filesystems" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="nav-5">
           <span class="md-nav__icon md-icon"></span>
           Filesystems
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -462,7 +463,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#glusterfs" class="md-nav__link">
@@ -678,18 +679,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
-      <label class="md-nav__link" for="__nav_6">
+      <label class="md-nav__link" for="nav-6">
         GitLab
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="GitLab" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="nav-6">
           <span class="md-nav__icon md-icon"></span>
           GitLab
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -732,18 +734,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
-      <label class="md-nav__link" for="__nav_7">
+      <label class="md-nav__link" for="nav-7">
         LDAP
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="LDAP" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
           LDAP
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -834,18 +837,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="nav-8">
         Linux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="nav-8">
           <span class="md-nav__icon md-icon"></span>
           Linux
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1155,18 +1159,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_26" type="checkbox" id="__nav_8_26" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-26" type="checkbox" id="nav-8-26" >
       
-      <label class="md-nav__link" for="__nav_8_26">
+      <label class="md-nav__link" for="nav-8-26">
         Cockpit
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Cockpit" data-md-level="2">
-        <label class="md-nav__title" for="__nav_8_26">
+        <label class="md-nav__title" for="nav-8-26">
           <span class="md-nav__icon md-icon"></span>
           Cockpit
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1203,18 +1208,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
       
-      <label class="md-nav__link" for="__nav_9">
+      <label class="md-nav__link" for="nav-9">
         Mail
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Mail" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="nav-9">
           <span class="md-nav__icon md-icon"></span>
           Mail
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1257,18 +1263,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
       
-      <label class="md-nav__link" for="__nav_10">
+      <label class="md-nav__link" for="nav-10">
         Network
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Network" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="nav-10">
           <span class="md-nav__icon md-icon"></span>
           Network
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1371,18 +1378,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
       
-      <label class="md-nav__link" for="__nav_11">
+      <label class="md-nav__link" for="nav-11">
         OS
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="OS" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
+        <label class="md-nav__title" for="nav-11">
           <span class="md-nav__icon md-icon"></span>
           OS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1416,18 +1424,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-3" type="checkbox" id="nav-11-3" >
       
-      <label class="md-nav__link" for="__nav_11_3">
+      <label class="md-nav__link" for="nav-11-3">
         CentOS
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="CentOS" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_3">
+        <label class="md-nav__title" for="nav-11-3">
           <span class="md-nav__icon md-icon"></span>
           CentOS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1479,18 +1488,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-4" type="checkbox" id="nav-11-4" >
       
-      <label class="md-nav__link" for="__nav_11_4">
+      <label class="md-nav__link" for="nav-11-4">
         Centreon
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Centreon" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_4">
+        <label class="md-nav__title" for="nav-11-4">
           <span class="md-nav__icon md-icon"></span>
           Centreon
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1518,18 +1528,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" type="checkbox" id="__nav_11_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-5" type="checkbox" id="nav-11-5" >
       
-      <label class="md-nav__link" for="__nav_11_5">
+      <label class="md-nav__link" for="nav-11-5">
         Debian
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debian" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_5">
+        <label class="md-nav__title" for="nav-11-5">
           <span class="md-nav__icon md-icon"></span>
           Debian
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1581,18 +1592,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_6" type="checkbox" id="__nav_11_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-6" type="checkbox" id="nav-11-6" >
       
-      <label class="md-nav__link" for="__nav_11_6">
+      <label class="md-nav__link" for="nav-11-6">
         Fedora
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Fedora" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_6">
+        <label class="md-nav__title" for="nav-11-6">
           <span class="md-nav__icon md-icon"></span>
           Fedora
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1629,18 +1641,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
       
-      <label class="md-nav__link" for="__nav_12">
+      <label class="md-nav__link" for="nav-12">
         PAM SSSD
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="PAM SSSD" data-md-level="1">
-        <label class="md-nav__title" for="__nav_12">
+        <label class="md-nav__title" for="nav-12">
           <span class="md-nav__icon md-icon"></span>
           PAM SSSD
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1683,18 +1696,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
       
-      <label class="md-nav__link" for="__nav_13">
+      <label class="md-nav__link" for="nav-13">
         Podman
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Podman" data-md-level="1">
-        <label class="md-nav__title" for="__nav_13">
+        <label class="md-nav__title" for="nav-13">
           <span class="md-nav__icon md-icon"></span>
           Podman
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1737,18 +1751,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14" >
       
-      <label class="md-nav__link" for="__nav_14">
+      <label class="md-nav__link" for="nav-14">
         SQL
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="SQL" data-md-level="1">
-        <label class="md-nav__title" for="__nav_14">
+        <label class="md-nav__title" for="nav-14">
           <span class="md-nav__icon md-icon"></span>
           SQL
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1791,18 +1806,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" >
       
-      <label class="md-nav__link" for="__nav_15">
+      <label class="md-nav__link" for="nav-15">
         Systemd
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Systemd" data-md-level="1">
-        <label class="md-nav__title" for="__nav_15">
+        <label class="md-nav__title" for="nav-15">
           <span class="md-nav__icon md-icon"></span>
           Systemd
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1833,18 +1849,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16" >
       
-      <label class="md-nav__link" for="__nav_16">
+      <label class="md-nav__link" for="nav-16">
         Virt
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Virt" data-md-level="1">
-        <label class="md-nav__title" for="__nav_16">
+        <label class="md-nav__title" for="nav-16">
           <span class="md-nav__icon md-icon"></span>
           Virt
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1911,18 +1928,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17" >
       
-      <label class="md-nav__link" for="__nav_17">
+      <label class="md-nav__link" for="nav-17">
         Web
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Web" data-md-level="1">
-        <label class="md-nav__title" for="__nav_17">
+        <label class="md-nav__title" for="nav-17">
           <span class="md-nav__icon md-icon"></span>
           Web
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1944,18 +1962,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17_2" type="checkbox" id="__nav_17_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17-2" type="checkbox" id="nav-17-2" >
       
-      <label class="md-nav__link" for="__nav_17_2">
+      <label class="md-nav__link" for="nav-17-2">
         Apache
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Apache" data-md-level="2">
-        <label class="md-nav__title" for="__nav_17_2">
+        <label class="md-nav__title" for="nav-17-2">
           <span class="md-nav__icon md-icon"></span>
           Apache
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -1995,18 +2014,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17_3" type="checkbox" id="__nav_17_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17-3" type="checkbox" id="nav-17-3" >
       
-      <label class="md-nav__link" for="__nav_17_3">
+      <label class="md-nav__link" for="nav-17-3">
         HAProxy
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="HAProxy" data-md-level="2">
-        <label class="md-nav__title" for="__nav_17_3">
+        <label class="md-nav__title" for="nav-17-3">
           <span class="md-nav__icon md-icon"></span>
           HAProxy
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
           
             
   
@@ -2052,7 +2072,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2064,7 +2084,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#glusterfs" class="md-nav__link">
@@ -2191,7 +2211,7 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
+          <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -2220,16 +2240,16 @@ Contrairement à un certain nombre d’autres  systèmes de fichiers de ce type,
 <h3 id="lenvironnement">L’environnement</h3>
 <p>GlusterFS  est assez agnostique par rapport à l’environnement et à la  distribution. Pour ma part, les démonstrations suivantes seront toutes  réalisées sous Ubuntu 16.04. Un point indispensable étant que les nœuds  soient capables de discuter par leur nom, qu’il soit résolu par DNS ou  par le fichier hosts, mais pas par adresse IP. Pour la suite, je  partirai sur deux VMs stor0 et stor1 afin de monter un cluster à deux nœuds.<br />
 Chaque  serveur dispose d’un second disque virtuel de 10 Gio pour la  démonstration. Le périphérique doit par contre impérativement disposer  d’un système de fichiers supportant les attributs étendus, ext4 ou XFS  sachant qu’XFS est de loin le système de fichiers recommandé. La  convention de nommage veut, mais n’impose pas, que les données soient  placées dans /data/glusterfs/volume/brick. La création des volumes peut se faire simplement comme ceci :</p>
-<div class="codehilite"><pre><span></span><code>apt-get -y install lvm2 acl attr xfsprogs
-$(echo o; echo n; echo p; echo 1; echo ; echo; echo t; echo 8E; echo w) | fdisk /dev/sdb
-pvcreate /dev/sdb1
-vgcreate VG-Brick0 /dev/sdb1
-lvcreate -l 100%VG -n LV-Brick0 VG-Brick0
-mkfs.xfs -i size=512 -L Brick0 /dev/VG-Brick0/LV-Brick0
-mkdir -p /data/glusterfs/vol0/
-echo &quot;/dev/VG-Brick0/LV-Brick0 /data/glusterfs/vol0/ xfs defaults 1 2&quot; &gt;&gt; /etc/fstab
-mount /data/glusterfs/vol0/
-mkdir /data/glusterfs/vol0/brick0
+<div class="codehilite"><pre><span></span><code><span class="err">apt-get -y install lvm2 acl attr xfsprogs</span>
+<span class="err">$(echo o; echo n; echo p; echo 1; echo ; echo; echo t; echo 8E; echo w) | fdisk /dev/sdb</span>
+<span class="err">pvcreate /dev/sdb1</span>
+<span class="err">vgcreate VG-Brick0 /dev/sdb1</span>
+<span class="err">lvcreate -l 100%VG -n LV-Brick0 VG-Brick0</span>
+<span class="err">mkfs.xfs -i size=512 -L Brick0 /dev/VG-Brick0/LV-Brick0</span>
+<span class="err">mkdir -p /data/glusterfs/vol0/</span>
+<span class="err">echo &quot;/dev/VG-Brick0/LV-Brick0 /data/glusterfs/vol0/ xfs defaults 1 2&quot; &gt;&gt; /etc/fstab</span>
+<span class="err">mount /data/glusterfs/vol0/</span>
+<span class="err">mkdir /data/glusterfs/vol0/brick0</span>
 </code></pre></div>
 
 <p>Le LVM n’est pas obligatoire, mais s’y tenir permet d’avoir les  bons réflexes pour de la production. Pour le reste, l’installation des  packages est très simple, cette simple commande suffit :</p>
@@ -2237,8 +2257,8 @@ mkdir /data/glusterfs/vol0/brick0
 <p>Par  souci de simplification, aucun pare-feu n’est activé sur les  différentes machines. Point de vigilance, il ne faudra pas cloner les  machines avec le disque de données supplémentaire.</p>
 <h3 id="le-trusted-pool">Le trusted pool</h3>
 <p>Avant  d’être en mesure de gérer des volumes de stockage, les membres d’un  cluster GlusterFS doivent se reconnaître entre eux et faire partie d’un  même trusted pool. Tant que cette opération n’est pas réalisée, il n’est  pas possible pour un hôte de joindre le réseau de stockage. Pour cela,  c’est très simple, il suffit depuis un nœud de sonder avec la commande  gluster peer probe d’ajouter les autres nœuds :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor1</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="n">probe</span><span class="w"> </span><span class="n">stor0</span><span class="w"></span>
-<span class="n">peer</span><span class="w"> </span><span class="nl">probe</span><span class="p">:</span><span class="w"> </span><span class="n">success</span><span class="p">.</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor1:~# gluster peer probe stor0</span>
+<span class="err">peer probe: success.</span>
 </code></pre></div>
 
 <p>Pour vérifier :</p>
@@ -2282,48 +2302,48 @@ mkdir /data/glusterfs/vol0/brick0
 – via NFS, Gluster  impémentant nativement le support NFS. Si vous avez été vigilant lors de  l’installation du package glusterfs-server, vous avez sûrement remarqué  certaines dépendances. Le serveur NFS n’est pas activé par défaut  cependant.<br />
 – en CIFS, avec un serveur Samba.<br />
 Dans les deux  derniers cas, il est souhaitable d’associer les serveurs à un système de  type CTDB pour fournir de la haute disponibilité. NFS et Samba ne  savent en effet pas tirer parti de l’ensemble des fonctionnalités  contrairement au client natif. Connectons donc un premier client :</p>
-<div class="codehilite"><pre><span></span><code>apt-get -y install glusterfs-client
-mkdir /data
-mount -t glusterfs stor1:/repl-vol /data
+<div class="codehilite"><pre><span></span><code><span class="err">apt-get -y install glusterfs-client</span>
+<span class="err">mkdir /data</span>
+<span class="err">mount -t glusterfs stor1:/repl-vol /data</span>
 </code></pre></div>
 
 <p>Créons un fichier aléatoire avec par exemple la commande ci-dessous.</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">dd</span> <span class="k">if</span><span class="o">=/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">urandom</span> <span class="nv">of</span><span class="o">=/</span><span class="nv">data</span><span class="o">/</span><span class="nv">toto</span> <span class="nv">bs</span><span class="o">=</span><span class="mi">1024</span> <span class="nv">count</span><span class="o">=</span><span class="mi">10240</span>
+<div class="codehilite"><pre><span></span><code><span class="err">dd if=/dev/urandom of=/data/toto bs=1024 count=10240</span>
 </code></pre></div>
 
 <p>Pour  confirmer que la réplication est fonctionnelle, il suffit de vérifier  avec une simple commande ls que le fichier est présent sur les bricks de  chacun des deux serveurs GlusterFS :</p>
-<div class="codehilite"><pre><span></span><code>ls -l /data/glusterfs/vol0/brick0/toto
--rw-r--r-- 2 root root 10485760 sept.  9 19:58 /data/glusterfs/vol0/brick0/toto
+<div class="codehilite"><pre><span></span><code><span class="err">ls -l /data/glusterfs/vol0/brick0/toto</span>
+<span class="err">-rw-r--r-- 2 root root 10485760 sept.  9 19:58 /data/glusterfs/vol0/brick0/toto</span>
 </code></pre></div>
 
 <p>Un  point qui a dû vous surprendre est la commande de montage. On a en  effet explicitement spécifié l’un des serveurs alors que l’on est censé  avoir déployé un stockage hautement disponible. En pratique, le client  natif glusterfs ne fait que récupérer lors de la commande de mount les  informations de configuration du cluster. Il communiquera directement  avec l’ensemble des serveurs définis dans les volfile (dans le  répertoire /var/lib/glusterd/vols/repl-vol sur les  nœuds de stockage). Un bon moyen de vérifier est d’arrêter  le nœud vers  lequel on a réalisé le montage (un halt -p sur stor1 dans ce cas) : le  client doit continuer à fonctionner. Côté client, la perte de connexion  doit être visible dans le fichier /var/log/glusterfs/data.log</p>
-<div class="codehilite"><pre><span></span><code>[2017-09-09 18:01:18.933835] W [socket.c:588:__socket_rwv] 0-glusterfs: readv on 192.168.69.61:24007 failed (Aucune donnée disponible)
-[2017-09-09 18:01:37.954070] W [socket.c:588:__socket_rwv] 0-repl-vol-client-1: readv on 192.168.69.61:49152 failed (Connexion terminée par expiration du délai d&#39;attente)
+<div class="codehilite"><pre><span></span><code><span class="err">[2017-09-09 18:01:18.933835] W [socket.c:588:__socket_rwv] 0-glusterfs: readv on 192.168.69.61:24007 failed (Aucune donnée disponible)</span>
+<span class="err">[2017-09-09 18:01:37.954070] W [socket.c:588:__socket_rwv] 0-repl-vol-client-1: readv on 192.168.69.61:49152 failed (Connexion terminée par expiration du délai d&#39;attente)</span>
 </code></pre></div>
 
 <p>Un  point que vous aurez noté également, c’est que la bascule n’est pas  immédiate. En pratique, le délai est de 42 secondes. Pour ramener ce  délai à une valeur plus raisonnable de 5 secondes, modifions notre nœud  comme suit :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor1</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="n">network</span><span class="p">.</span><span class="n">ping</span><span class="o">-</span><span class="n">timeout</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
-<span class="n">volume</span><span class="w"> </span><span class="k">set</span><span class="err">:</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor1:~# gluster volume set repl-vol network.ping-timeout 5</span>
+<span class="err">volume set: success</span>
 </code></pre></div>
 
 <p>Ce changement est tracé dans le log /var/log/glusterfs/glustershd.log avec une ligne par nœud comme celle-ci :</p>
-<div class="codehilite"><pre><span></span><code>[2017-09-09 18:33:19.591108] I [rpc-clnt.c:1823:rpc_clnt_reconfig] 0-repl-vol-client-0: changing ping timeout to 5 (from 42)
+<div class="codehilite"><pre><span></span><code><span class="err">[2017-09-09 18:33:19.591108] I [rpc-clnt.c:1823:rpc_clnt_reconfig] 0-repl-vol-client-0: changing ping timeout to 5 (from 42)</span>
 </code></pre></div>
 
 <h3 id="un-brin-de-securite">Un brin de sécurité</h3>
 <p>Jusqu’ici,  on a pu monter le volume simplement en contactant l’un des serveurs du  pool GlusterFS, mais aucune sécurité supplémentaire n’a été imposée. Il  est possible de restreindre l’accès à notre volume en définissant une  ACL similaire à ce qui existe en NFS via le fichier /etc/exports.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="n">auth</span><span class="p">.</span><span class="n">allow</span><span class="w"> </span><span class="mf">192.168.69.104</span><span class="w"></span>
-<span class="n">volume</span><span class="w"> </span><span class="k">set</span><span class="err">:</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:~# gluster volume set repl-vol auth.allow 192.168.69.104</span>
+<span class="err">volume set: success</span>
 </code></pre></div>
 
 <p>Il est également possible de définir une  wildcard, par exemple 192.168.69.<em> afin d’autoriser tout un réseau. Dans  cet exemple, nous avons autorisé explicitement une adresse IP à se  connecter au volume.<br />
 Nous aurions également pu autoriser un nom  d’hôte ou plusieurs adresses IP ou noms séparés par des virgules. Le  fait de définir l’attribut auth.allow a comme effet immédiat d’interdire  toutes les autres machines qui n’ont pas été explicitement autorisées.  Pour revenir au comportement par défaut, il faut autoriser le caractère  wildcard (</em>) tout simplement. A l’inverse, l’attribut auth.reject  n’interdit aucune machine par défaut (auth.reject avec comme valeur  NONE). Il sert comme vous l’avez deviné à interdire explicitement une  machine. Pour résumer, le contrôle d’accès a une logique similaire avec  ce qui existe côté TCP Wrappers.</p>
 <h3 id="une-corbeille-sur-le-volume">Une corbeille sur le volume</h3>
 <p>GlusterFS  sait gérer une corbeille au niveau volume pour conserver les fichiers  supprimés. Le dossier est créé automatiquement par gluster et ne peut  être supprimé. Fait intéressant, gluster sait si on le lui dit, tirer  parti de cette corbeille pour ses opérations internes. Activons donc une  corbeille pour les fichiers de moins de 10 Mio :</p>
-<div class="codehilite"><pre><span></span><code>gluster volume set repl-vol features.trash on
-gluster volume set repl-vol features.trash-dir &quot;Corbeille&quot;
-gluster volume set repl-vol features.trash-max-filesize 10485760
-gluster volume set repl-vol features.trash-internal-op on
+<div class="codehilite"><pre><span></span><code><span class="err">gluster volume set repl-vol features.trash on</span>
+<span class="err">gluster volume set repl-vol features.trash-dir &quot;Corbeille&quot;</span>
+<span class="err">gluster volume set repl-vol features.trash-max-filesize 10485760</span>
+<span class="err">gluster volume set repl-vol features.trash-internal-op on</span>
 </code></pre></div>
 
 <h3 id="node-hs-pas-de-panique">Node HS ? Pas de panique !</h3>
@@ -2354,8 +2374,8 @@ Premièrement, on ajoute le nouveau nœud et  on va confirmer qu’on a bien un 
 </code></pre></div>
 
 <p>Remplaçons maintenant la brick du stor0 par celle de notre nouveau serveur stor2 et vérifions son état de santé :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor1</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="nf">replace</span><span class="o">-</span><span class="n">brick</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="nl">stor0</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"> </span><span class="nl">stor2</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="n">force</span><span class="w"></span>
-<span class="n">volume</span><span class="w"> </span><span class="nf">replace</span><span class="o">-</span><span class="nl">brick</span><span class="p">:</span><span class="w"> </span><span class="nl">success</span><span class="p">:</span><span class="w"> </span><span class="nf">replace</span><span class="o">-</span><span class="n">brick</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="k">operation</span><span class="w"> </span><span class="n">successful</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor1:~# gluster volume replace-brick repl-vol stor0:/data/glusterfs/vol0/brick0 stor2:/data/glusterfs/vol0/brick0 commit force</span>
+<span class="err">volume replace-brick: success: replace-brick commit force operation successful</span>
 </code></pre></div>
 
 <p>On réconcilie le volume :</p>
@@ -2371,8 +2391,8 @@ Premièrement, on ajoute le nouveau nœud et  on va confirmer qu’on a bien un 
 </code></pre></div>
 
 <p>Et depuis le nouveau node, lançons une synchronisation :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="n">stor1</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"></span>
-<span class="n">Sync</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">inaccessible</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">progress</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">continue</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:/data/glusterfs/vol0/brick0# gluster volume sync stor1 repl-vol</span>
+<span class="err">Sync volume may make data inaccessible while the sync is in progress. Do you want to continue? (y/n) y</span>
 </code></pre></div>
 
 <p>Il  nous reste une dernière étape : répliquer le volume id dans les  attributs étendus du système de fichiers et le propager au second  serveur. Pour le récupérer, il faut lancer la commande suivante :</p>
@@ -2383,25 +2403,25 @@ Premièrement, on ajoute le nouveau nœud et  on va confirmer qu’on a bien un 
 </code></pre></div>
 
 <p>Sur le nouveau serveur, on applique l’ID du volume sur la brick :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="err">#</span><span class="w"> </span><span class="n">setfattr</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">trusted</span><span class="p">.</span><span class="n">glusterfs</span><span class="p">.</span><span class="n">volume</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="s1">&#39;0seEhN1zXZTFOXmRGV92ibvw==&#39;</span><span class="w"> </span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="o">/</span><span class="w"></span>
-<span class="n">service</span><span class="w"> </span><span class="n">glusterfs</span><span class="o">-</span><span class="n">server</span><span class="w"> </span><span class="n">restart</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:/data/glusterfs/vol0/brick0# setfattr -n trusted.glusterfs.volume-id -v &#39;0seEhN1zXZTFOXmRGV92ibvw==&#39; /data/glusterfs/vol0/brick0/</span>
+<span class="err">service glusterfs-server restart</span>
 </code></pre></div>
 
 <p>La configuration de notre  volume est bien mise à jour comme on peut le voir ci-dessous. Dans le  cadre d’un volume distribué, il faudrait lancer un rééquilibrage  (rebalance) du volume :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor1</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"></span>
-<span class="n">Volume</span><span class="w"> </span><span class="nl">Name</span><span class="p">:</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"></span>
-<span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="nf">Replicate</span><span class="w"></span>
-<span class="n">Volume</span><span class="w"> </span><span class="nl">ID</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">c493043</span><span class="o">-</span><span class="mi">9</span><span class="n">c2d</span><span class="o">-</span><span class="mi">4</span><span class="n">be6</span><span class="o">-</span><span class="n">afcd</span><span class="o">-</span><span class="mi">8512577342</span><span class="n">c9</span><span class="w"></span>
-<span class="nl">Status</span><span class="p">:</span><span class="w"> </span><span class="n">Started</span><span class="w"></span>
-<span class="n">Number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nl">Bricks</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="n">Transport</span><span class="o">-</span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="n">tcp</span><span class="w"></span>
-<span class="nl">Bricks</span><span class="p">:</span><span class="w"></span>
-<span class="nl">Brick1</span><span class="p">:</span><span class="w"> </span><span class="nl">stor2</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="nl">Brick2</span><span class="p">:</span><span class="w"> </span><span class="nl">stor1</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="n">Options</span><span class="w"> </span><span class="nl">Reconfigured</span><span class="p">:</span><span class="w"></span>
-<span class="n">performance</span><span class="p">.</span><span class="n">readdir</span><span class="o">-</span><span class="nl">ahead</span><span class="p">:</span><span class="w"> </span><span class="k">on</span><span class="w"></span>
-<span class="n">cluster</span><span class="p">.</span><span class="n">self</span><span class="o">-</span><span class="n">heal</span><span class="o">-</span><span class="nl">daemon</span><span class="p">:</span><span class="w"> </span><span class="n">enable</span><span class="w"></span>
-<span class="n">network</span><span class="p">.</span><span class="n">ping</span><span class="o">-</span><span class="nl">timeout</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor1:~# gluster volume info repl-vol</span>
+<span class="err">Volume Name: repl-vol</span>
+<span class="c">Type: Replicate</span>
+<span class="err">Volume ID: 1c493043-9c2d-4be6-afcd-8512577342c9</span>
+<span class="c">Status: Started</span>
+<span class="err">Number of Bricks: 1 x 2 = 2</span>
+<span class="c">Transport-type: tcp</span>
+<span class="c">Bricks:</span>
+<span class="c">Brick1: stor2:/data/glusterfs/vol0/brick0</span>
+<span class="c">Brick2: stor1:/data/glusterfs/vol0/brick0</span>
+<span class="err">Options Reconfigured:</span>
+<span class="err">performance.readdir-ahead: on</span>
+<span class="err">cluster.self-heal-daemon: enable</span>
+<span class="err">network.ping-timeout: 5</span>
 </code></pre></div>
 
 <p>Enfin, il ne reste plus qu’à retirer l’ancien nœud des peers autorisés dans le trusted pool :</p>
@@ -2416,10 +2436,10 @@ Premièrement, on ajoute le nouveau nœud et  on va confirmer qu’on a bien un 
 </code></pre></div>
 
 <p>Il ne doit plus apparaître dans la liste des nœuds :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor1</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">list</span><span class="w"></span>
-<span class="n">UUID</span><span class="w">                                    </span><span class="n">Hostname</span><span class="w">        </span><span class="k">State</span><span class="w"></span>
-<span class="mi">0</span><span class="n">cb0f3b6</span><span class="o">-</span><span class="mf">10e5</span><span class="o">-</span><span class="mi">41</span><span class="n">c4</span><span class="o">-</span><span class="n">ad7e</span><span class="o">-</span><span class="n">cb9ca794db9e</span><span class="w">    </span><span class="n">stor2</span><span class="w">           </span><span class="n">Connected</span><span class="w"></span>
-<span class="n">d5ff9617</span><span class="o">-</span><span class="mi">6989</span><span class="o">-</span><span class="mi">48</span><span class="n">ae</span><span class="o">-</span><span class="n">be3a</span><span class="o">-</span><span class="mf">3e1286060</span><span class="n">ea1</span><span class="w">    </span><span class="n">localhost</span><span class="w">       </span><span class="n">Connected</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor1:~# gluster pool list</span>
+<span class="err">UUID                                    Hostname        State</span>
+<span class="err">0cb0f3b6-10e5-41c4-ad7e-cb9ca794db9e    stor2           Connected</span>
+<span class="err">d5ff9617-6989-48ae-be3a-3e1286060ea1    localhost       Connected</span>
 </code></pre></div>
 
 <p>Vous  savez désormais comment remplacer un nœud défaillant, sachant que ce  processus s’applique également en cas de migration de la brick de stor0 vers un nouveau serveur.</p>
@@ -2433,36 +2453,36 @@ La première étape consiste à autoriser les deux nœuds avec la commande glust
 </code></pre></div>
 
 <p>Vérifions notre volume, nous devons retrouver nos deux bricks supplémentaires.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"></span>
-<span class="n">Volume</span><span class="w"> </span><span class="nl">Name</span><span class="p">:</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"></span>
-<span class="nl">Type</span><span class="p">:</span><span class="w"> </span><span class="k">Distributed</span><span class="o">-</span><span class="nf">Replicate</span><span class="w"></span>
-<span class="n">Volume</span><span class="w"> </span><span class="nl">ID</span><span class="p">:</span><span class="w"> </span><span class="mi">78484</span><span class="n">dd7</span><span class="o">-</span><span class="mi">35</span><span class="n">d9</span><span class="o">-</span><span class="mi">4</span><span class="n">c53</span><span class="o">-</span><span class="mi">9799</span><span class="o">-</span><span class="mi">1195</span><span class="n">f7689bbf</span><span class="w"></span>
-<span class="nl">Status</span><span class="p">:</span><span class="w"> </span><span class="n">Started</span><span class="w"></span>
-<span class="n">Number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nl">Bricks</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="n">Transport</span><span class="o">-</span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="n">tcp</span><span class="w"></span>
-<span class="nl">Bricks</span><span class="p">:</span><span class="w"></span>
-<span class="nl">Brick1</span><span class="p">:</span><span class="w"> </span><span class="nl">stor2</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="nl">Brick2</span><span class="p">:</span><span class="w"> </span><span class="nl">stor1</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="nl">Brick3</span><span class="p">:</span><span class="w"> </span><span class="nl">stor3</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="nl">Brick4</span><span class="p">:</span><span class="w"> </span><span class="nl">stor4</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">vol0</span><span class="o">/</span><span class="n">brick0</span><span class="w"></span>
-<span class="n">Options</span><span class="w"> </span><span class="nl">Reconfigured</span><span class="p">:</span><span class="w"></span>
-<span class="n">performance</span><span class="p">.</span><span class="n">readdir</span><span class="o">-</span><span class="nl">ahead</span><span class="p">:</span><span class="w"> </span><span class="k">on</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:~# gluster volume info repl-vol</span>
+<span class="err">Volume Name: repl-vol</span>
+<span class="c">Type: Distributed-Replicate</span>
+<span class="err">Volume ID: 78484dd7-35d9-4c53-9799-1195f7689bbf</span>
+<span class="c">Status: Started</span>
+<span class="err">Number of Bricks: 2 x 2 = 4</span>
+<span class="c">Transport-type: tcp</span>
+<span class="c">Bricks:</span>
+<span class="c">Brick1: stor2:/data/glusterfs/vol0/brick0</span>
+<span class="c">Brick2: stor1:/data/glusterfs/vol0/brick0</span>
+<span class="c">Brick3: stor3:/data/glusterfs/vol0/brick0</span>
+<span class="c">Brick4: stor4:/data/glusterfs/vol0/brick0</span>
+<span class="err">Options Reconfigured:</span>
+<span class="err">performance.readdir-ahead: on</span>
 </code></pre></div>
 
 <p>Notre volume à deux réplicas  comportant quatre nœuds se comporte donc désormais comme un volume  distribué répliqué par la magie de l’extension du volume. Seul problème,  il n’y a aucune donnée sur les serveurs stor3 et stor4,  ce qui n’a pas eu pour effet de libérer de l’espace disque sur les deux  premiers serveurs. Il est donc nécessaire de répartir la volumétrie sur  l’ensemble des bricks qui composent le volume :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">rebalance</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="k">start</span><span class="o">&lt;</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="nl">rebalance</span><span class="p">:</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="nl">vol</span><span class="p">:</span><span class="w"> </span><span class="nl">success</span><span class="p">:</span><span class="w"> </span><span class="n">Rebalance</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="n">successfully</span><span class="p">.</span><span class="w"> </span><span class="k">Use</span><span class="w"> </span><span class="n">rebalance</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rebalance</span><span class="w"> </span><span class="n">process</span><span class="p">.</span><span class="w"> </span>
-<span class="nl">ID</span><span class="p">:</span><span class="w"> </span><span class="n">dffbed2e</span><span class="o">-</span><span class="mi">3</span><span class="n">a0c</span><span class="o">-</span><span class="mi">4</span><span class="n">d7d</span><span class="o">-</span><span class="mi">9</span><span class="n">f43</span><span class="o">-</span><span class="mi">9</span><span class="n">d978a546b04</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:~# gluster volume rebalance repl-vol start&lt; volume rebalance: repl-vol: success: Rebalance on repl-vol has been started successfully. Use rebalance status command to check status of the rebalance process. </span>
+<span class="c">ID: dffbed2e-3a0c-4d7d-9f43-9d978a546b04</span>
 </code></pre></div>
 
 <p>Pour vérifier il suffit de lancer la même commande avec le paramètre status :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">rebalance</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="n">status</span><span class="w"></span>
-<span class="n">Node</span><span class="w"> </span><span class="n">Rebalanced</span><span class="o">-</span><span class="n">files</span><span class="w">          </span><span class="k">size</span><span class="w">       </span><span class="n">scanned</span><span class="w">      </span><span class="n">failures</span><span class="w">       </span><span class="n">skipped</span><span class="w">               </span><span class="n">status</span><span class="w">   </span><span class="n">run</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">secs</span><span class="w"></span>
-<span class="o">---------</span><span class="w">      </span><span class="o">-----------</span><span class="w">   </span><span class="o">-----------</span><span class="w">   </span><span class="o">-----------</span><span class="w">   </span><span class="o">-----------</span><span class="w">   </span><span class="o">-----------</span><span class="w">         </span><span class="o">------------</span><span class="w">     </span><span class="o">--------------</span><span class="w"></span>
-<span class="n">localhost</span><span class="w">                </span><span class="mi">5</span><span class="w">        </span><span class="mi">0</span><span class="n">Bytes</span><span class="w">            </span><span class="mi">10</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">            </span><span class="n">completed</span><span class="w">               </span><span class="mf">2.00</span><span class="w"></span>
-<span class="n">stor1</span><span class="w">                </span><span class="mi">0</span><span class="w">        </span><span class="mi">0</span><span class="n">Bytes</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">            </span><span class="n">completed</span><span class="w">               </span><span class="mf">1.00</span><span class="w"></span>
-<span class="n">stor3</span><span class="w">                </span><span class="mi">0</span><span class="w">        </span><span class="mi">0</span><span class="n">Bytes</span><span class="w">             </span><span class="mi">2</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">            </span><span class="n">completed</span><span class="w">               </span><span class="mf">1.00</span><span class="w"></span>
-<span class="n">stor4</span><span class="w">                </span><span class="mi">0</span><span class="w">        </span><span class="mi">0</span><span class="n">Bytes</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">             </span><span class="mi">0</span><span class="w">            </span><span class="n">completed</span><span class="w">               </span><span class="mf">1.00</span><span class="w"></span>
-<span class="n">volume</span><span class="w"> </span><span class="nl">rebalance</span><span class="p">:</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="nl">vol</span><span class="p">:</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:~# gluster volume rebalance repl-vol status</span>
+<span class="err">Node Rebalanced-files          size       scanned      failures       skipped               status   run time in secs</span>
+<span class="err">---------      -----------   -----------   -----------   -----------   -----------         ------------     --------------</span>
+<span class="err">localhost                5        0Bytes            10             0             0            completed               2.00</span>
+<span class="err">stor1                0        0Bytes             0             0             0            completed               1.00</span>
+<span class="err">stor3                0        0Bytes             2             0             0            completed               1.00</span>
+<span class="err">stor4                0        0Bytes             0             0             0            completed               1.00</span>
+<span class="err">volume rebalance: repl-vol: success</span>
 </code></pre></div>
 
 <h3 id="les-quotas">Les quotas</h3>
@@ -2470,15 +2490,15 @@ La première étape consiste à autoriser les deux nœuds avec la commande glust
 <p>root@stor2:~# gluster volume quota repl-vol enable<br />
 volume quota : success</p>
 <p>Nous allons appliquer une limite à 1Gio  sur le sous-dossier subdir de notre volume. Ce dossier devra avoir été  impérativement créé depuis le client glusterfs ajouté précédemment. Pour  créer ce quota :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@stor2</span><span class="err">:</span><span class="o">~</span><span class="err">#</span><span class="w"> </span><span class="n">gluster</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">quota</span><span class="w"> </span><span class="n">repl</span><span class="o">-</span><span class="n">vol</span><span class="w"> </span><span class="k">limit</span><span class="o">-</span><span class="k">usage</span><span class="w"> </span><span class="o">/</span><span class="n">subdir</span><span class="w"> </span><span class="mi">1</span><span class="n">GB</span><span class="w"></span>
-<span class="n">volume</span><span class="w"> </span><span class="n">quota</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@stor2:~# gluster volume quota repl-vol limit-usage /subdir 1GB</span>
+<span class="err">volume quota : success</span>
 </code></pre></div>
 
 <p>Si nous avions souhaité créer un quota au  niveau du volume, il suffit d’indiquer / dans le chemin. Créons un  fichier approchant le quota depuis notre client GlusterFS :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="nv">@desktop</span><span class="err">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">subdir</span><span class="err">#</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="k">if</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">zero</span><span class="w"> </span><span class="k">of</span><span class="o">=/</span><span class="k">data</span><span class="o">/</span><span class="n">subdir</span><span class="o">/</span><span class="n">toto</span><span class="w"> </span><span class="n">bs</span><span class="o">=</span><span class="mi">1024</span><span class="w"> </span><span class="nf">count</span><span class="o">=</span><span class="mi">1024000</span><span class="w"></span>
-<span class="mi">1024000</span><span class="o">+</span><span class="mi">0</span><span class="w"> </span><span class="n">enregistrements</span><span class="w"> </span><span class="n">lus</span><span class="w"></span>
-<span class="mi">1024000</span><span class="o">+</span><span class="mi">0</span><span class="w"> </span><span class="n">enregistrements</span><span class="w"> </span><span class="n">écrits</span><span class="w"></span>
-<span class="mi">1048576000</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="w"> </span><span class="n">GB</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="n">MiB</span><span class="p">)</span><span class="w"> </span><span class="n">copied</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p">,</span><span class="mi">044</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="w"> </span><span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="err">root@desktop:/data/subdir# dd if=/dev/zero of=/data/subdir/toto bs=1024 count=1024000</span>
+<span class="err">1024000+0 enregistrements lus</span>
+<span class="err">1024000+0 enregistrements écrits</span>
+<span class="err">1048576000 bytes (1,0 GB, 1000 MiB) copied, 223,044 s, 4,7 MB/s</span>
 </code></pre></div>
 
 <p>Et voyons l’état du quota :</p>
@@ -2511,38 +2531,40 @@ Path                   Hard-limit  Soft-limit      Used�
         
 <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../Filesystems_tricks/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Filesystems tricks
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Filesystems_tricks/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-          </div>
-        </a>
-      
-      
-        <a href="../LUKS/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              LUKS
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Filesystems tricks
+              </div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+          </a>
+        
+        
+          <a href="../LUKS/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                LUKS
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2559,13 +2581,19 @@ Path                   Hard-limit  Soft-limit      Used�
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>
